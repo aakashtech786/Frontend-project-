@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>simple quiz app</title>
+    <link rel="stylesheet" href="style.css">
+
+
+    <style>
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family:sans-serif;
+}
+
+body{
+    background-color: #001e4d;
+}
+
+.app{
+    width: 98%;
+    max-width: 600px;
+    margin: 100px auto 0;
+    padding: 30px;
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+.app h1{
+    border-bottom: 2px solid black;
+    padding-bottom: 30px;
+}
+
+.quiz{
+    padding-top: 20px;
+}
+.question{
+    margin-bottom: 250px;
+}
+
+.answer-button{
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    color:#fff;
+}
+
+.btn{
+    height: 40px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.btn:hover:not([disabled]){
+    background: #222;
+    color: #fff;
+}
+.btn:disabled{
+    cursor: no-drop;
+}
+
+#next-btn{
+    width: 150px;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+     background-color: #084099;
+    margin: 10px 200px 0 ;
+    display: none;
+    cursor: pointer;
+}
+#next-btn:active{
+   
+    background-color:#001e4d ;
+}
+
+
+.correct{
+    background-color: #9aeabc;
+    color:black;
+     font-weight: bold;
+     font-size: 20px;
+}
+
+.incorrect{
+    background-color: #ff9393;
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+
+    </style>
+</head>
+<body>
+ 
+    
+    <div  class="app">
+        <h1>Simple quiz</h1>
+        <div class="quiz">
+        <h2 id="question">question goes here</h2>
+        <div class="answer-button">
+          <button class="btn">Answer-1</button>
+          <button class="btn">Answer-2</button> 
+          <button class="btn">Answer-3</button> 
+          <button class="btn">Answer-4</button>  
+
+        </div>
+        <button id="next-btn">Next</button>
+
+        </div>
+
+    </div>
+    <script src="script.js">
+
+const questions = [
+  {
+    question:
+      "R.c Hutchinson in 'The Pace for Living ' describes the .....of modern man.",
+    answers: [
+      { text: "Happy", correct: false },
+      { text: "fast", correct: false },
+      { text: "sad", correct: false },
+      { text: "agony", correct: true },
+    ],
+  },
+  {
+    question:
+      "The author enjoys travelling fast in a ......if it is not his own.",
+    answers: [
+      { text: "bus", correct: false },
+      { text: "motorcycle", correct: false },
+      { text: "scooter", correct: false },
+      { text: "car", correct: true },
+    ],
+  },
+  {
+    question: "Rapid movement does not give the real.....of travel.",
+    answers: [
+      { text: "knowledge", correct: false },
+      { text: "pleasure", correct: true },
+      { text: "pain", correct: false },
+      { text: "dream", correct: false },
+    ],
+  },
+  {
+    question: "The author does not like to go to watch:",
+    answers: [
+      { text: "Television", correct: false },
+      { text: " Theatre", correct: false },
+      { text: " Cinema", correct: true },
+      { text: " Rallies", correct: false },
+    ],
+  },
+  {
+    question: "R.c Hutchinson did not.....the rapid movement of life.",
+    answers: [
+      { text: "like", correct: true },
+      { text: "hate", correct: false },
+      { text: "dislike", correct: false },
+      { text: "love", correct: false },
+    ],
+  },
+  {
+    question: " The hero in the movie, as described in 'The Pace For Living',took off his.....when he came indoors",
+    answers: [
+      { text: "shoes", correct: false },
+      { text: "tie", correct: false },
+      { text: "shirt", correct: false },
+      { text: "hat", correct: true },
+    ],
+  },
+  {
+    question: "The corn-merchant was unable to handle the .....of life.",
+    answers: [
+      { text: "Anxieties", correct: false },
+      { text: "Pleasures", correct: false },
+      { text: "Dramas", correct: false },
+      { text: "Pace", correct: true },
+    ],
+  },
+  {
+    question: "....are handicapped in finding a living for themselves.",
+    answers: [
+      { text: "Slow thinkers", correct: true },
+      { text: "High thinkers", correct: false },
+      { text: "Fast thinkers", correct: false },
+      { text: "Middle-paced thinkers", correct: false },
+    ],
+  },
+  {
+    question: "Hutchinson says that when he goes to the cinema he finds himself in a ......fog.",
+    answers: [
+      { text: "dense", correct: false },
+      { text: "hopeless", correct: true },
+      { text: "needless", correct: false },
+      { text: "countless", correct: false },
+    ],
+  },
+  {
+    question: "We show thinkers,according to Hutchinson, are terribly:",
+    answers: [
+      { text: "slow", correct: false },
+      { text: "devastated", correct: false },
+      { text: "long", correct: false },
+      { text: "handicapped", correct: true },
+    ],
+  },
+  {
+    question: "Big firms got their business through:",
+    answers: [
+      { text: "hardship", correct: false },
+      { text: "advertisement", correct: true },
+      { text: "money transactions", correct: false },
+      { text: "big businessmen", correct: false },
+    ],
+  },
+  {
+    question: "The chief character in the play 'The pace for Living' was man of many:",
+    answers: [
+      { text: "joys", correct: false },
+      { text: "skills", correct: false },
+      { text: "talents", correct: false },
+      { text: "anxieties", correct: true },
+    ],
+  },
+  {
+    question: "The ancestors had to do without the pleasure of :",
+    answers: [
+      { text: "reading", correct: false },
+      { text: "wealth", correct: false },
+      { text: "food", correct: false },
+      { text: "travel", correct: true },
+    ],
+  },
+  {
+    question: "Slow thinkers are handicapped in the business of getting a ......",
+    answers: [
+      { text: "car", correct: false },
+      { text: "living", correct: true },
+      { text: "meal", correct: false },
+      { text: "house", correct: false },
+    ],
+  },
+  {
+    question: "According to the author, intelligence test are designed ......",
+    answers: [
+      { text: "to test the mental speed", correct: true },
+      { text: "to test the physical speed", correct: false },
+      { text: " character", correct: false },
+      { text: "speech", correct: false },
+    ],
+  },
+  {
+    question: "Slow thinkers have a disadvantage when it comes to getting a ....",
+    answers: [
+      { text: "car", correct: false },
+      { text: "factory", correct: false },
+      { text: "living", correct: true },
+      { text: "holiday", correct: false },
+    ],
+  },
+  {
+    question: "Hutchinson was sure that he will score the lowest marks in any.....test.",
+    answers: [
+      { text: "driving", correct: false },
+      { text: "music", correct: false },
+      { text: "sports", correct: false },
+      { text: "intelligence", correct: true },
+    ],
+  },
+  {
+    question: "The corn-merchant was getting....by his nephew in 'The Pace for Living.'",
+    answers: [
+      { text: "beaten up", correct: false },
+      { text: "scolded", correct: false },
+      { text: "cheated", correct: true },
+      { text: "praised", correct: false },
+    ],
+  },
+  {
+    question: "In 'The pace for Living ' the author says that.....are designed to test the mental speed of a person.",
+    answers: [
+      { text: "education tests", correct: false },
+      { text: "psychological tests", correct: false },
+      { text: "placement tests", correct: false },
+      { text: "intelligence tests", correct: true },
+    ],
+  },
+  {
+    question: "The author in 'The pace for Living' enjoys:",
+    answers: [
+      { text: "long car drives", correct: true },
+      { text: "air flights", correct: false },
+      { text: "train journeys", correct: false },
+      { text: "road journeys", correct: false },
+    ],
+  },
+  {
+    question: "'The pace for Living' is written by:",
+    answers: [
+      { text: "Aung san Suu kyi", correct: false },
+      { text: "Toni Morrison", correct: false },
+      { text: "R.C.Hutchinson", correct: true },
+      { text: "Satyajit Ray", correct: false },
+    ],
+  },
+  {
+    question: "In'The pace of Living' the writer captures the agony of....man.",
+    answers: [
+      { text: "modern", correct: true },
+      { text: "ancient", correct: false },
+      { text: "future", correct: false },
+      { text: "uncivilized", correct: false },
+    ],
+  },
+  {
+    question: "The main character in the play which the author saw was a/an.....corn-merchant.",
+    answers: [
+      { text: "elderly", correct: true },
+      { text: "handicapped", correct: false },
+      { text: "young", correct: false },
+      { text: "disbetic", correct: false },
+    ],
+  },
+  {
+    question: "The author admits that quick travel does not give the traveller the real.....of travel.",
+    answers: [
+      { text: "pains", correct: false },
+      { text: "pleasure", correct: true },
+      { text: "dreams", correct: false },
+      { text: "knowledge", correct: false },
+    ],
+  },
+  {
+    question: "The author finds himself in a hopeless situation when he goes to watch the:",
+    answers: [
+      { text: "cinema", correct: true },
+      { text: " theatre", correct: false },
+      { text: "dance programme", correct: false },
+      { text: "singing competition", correct: false },
+    ],
+  },
+  {
+    question: "R.C Hutchinson was a ....",
+    answers: [
+      { text: "American Novelist", correct: false },
+      { text: "British Novelist", correct: true },
+      { text: "French Novelist", correct: false },
+      { text: "Italian Novelist", correct: false },
+    ],
+  },
+  {
+    question: "Rapid movement gives you a superficial sense of :",
+    answers: [
+      { text: "drama", correct: true },
+      { text: "music", correct: false },
+      { text: "security", correct: false },
+      { text: "hope", correct: false },
+    ],
+  },
+  {
+    question: "Who had the fantastic opinion of spending $10 on a holiday?",
+    answers: [
+      { text: "Son of Corn-merchant", correct: false },
+      { text: "Daughter of Corn-merchant", correct: false },
+      { text: "Father of Corn-merchant", correct: false },
+      { text: "Wife of Corn-merchant", correct: true },
+    ],
+  },
+  {
+    question: "Who was cheating the corn-merchant?",
+    answers: [
+      { text: "His Son", correct: false },
+      { text: "His Daughter ", correct: false },
+      { text: "His Nephew", correct: true },
+      { text: "His Wife", correct: false },
+    ],
+  },
+  {
+    question: "Mental activities of our time tend to follow the peace of:",
+    answers: [
+      { text: "computers", correct: false },
+      { text: "aeroplanes", correct: false },
+      { text: "houses", correct: false },
+      { text: "machines", correct: true },
+    ],
+  },
+  {
+    question: "In'The pace of Living' the author discuss:",
+    answers: [
+      { text: "the agony of modern man", correct: true },
+      { text: "the miseries of ancient people", correct: false },
+      { text: "the dilemma of people", correct: false },
+      { text: "the problems of old age", correct: false },
+    ],
+  },
+  {
+    question: "The essay'The pace for Living',captures the agony of.....",
+    answers: [
+      { text: "a modern man", correct: true },
+      { text: "a sick man", correct: false },
+      { text: "a plice man", correct: false },
+      { text: "a postman", correct: false },
+    ],
+  },
+  {
+    question: " The author belong to which tribe?",
+    answers: [
+      { text: "Fast thinkers", correct: false },
+      { text: "Slow thinkers", correct: true },
+      { text: "Steady thinkers", correct: false },
+      { text: "None of these", correct: false },
+    ],
+  },
+  {
+    question: "How many girls were there in the film?",
+    answers: [
+      { text: "Two", correct: false },
+      { text: "Three", correct: true },
+      { text: "Four", correct: false },
+      { text: "Nine", correct: false },
+    ],
+  },
+  {
+    question: "The author of the story'The pace of Living' enjoyed going in a car at....",
+    answers: [
+      { text: "Ninety miles an hour", correct: true },
+      { text: "Eighty miles an hour", correct: false },
+      { text: "sixty miles an hour", correct: false },
+      { text: "Seventy miles an hour", correct: false },
+    ],
+  },
+  {
+    question: "In'The pace for Living',R.C. Hutchinson discusses:",
+    answers: [
+      { text: "the happiness of men", correct: false },
+      { text: "the agony of modern man", correct: true },
+      { text: "the dilemma of people", correct: false },
+      { text: "None None of these", correct: false },
+    ],
+  },
+  {
+    question: "In 'The pace for Living' the author saw a play in:",
+    answers: [
+      { text: "Denmark", correct: false },
+      { text: "Dublin", correct: true },
+      { text: "Denver", correct: false },
+      { text: "Delhi", correct: false },
+    ],
+  },
+  {
+    question: "In the essay'The pace of Living' the Corn-merchant is....",
+    answers: [
+      { text: "an ambitious man", correct: false },
+      { text: "an anxious man", correct: true },
+      { text: "an adventurous man", correct: false },
+      { text: "None of these", correct: false },
+    ],
+  },
+  {
+    question: "How does the writer classify himself as a thinker in ' The pace of Living'?",
+    answers: [
+      { text: "An intelligent thinker", correct: false },
+      { text: "A slow thinker", correct:true },
+      { text: "A social thinker", correct: false },
+      { text: "None of these", correct: false },
+    ],
+  },
+  {
+    question: "People now a days think....than acient times.",
+    answers: [
+      { text: "deeper", correct: false },
+      { text: "faster", correct: true },
+      { text: "longer", correct: false },
+      { text: "slower", correct: false },
+    ],
+  }
+  
+
+];
+
+let questionEle = document.getElementById("question");
+let answerBtn = document.querySelector(".answer-button");
+let nextbtn = document.getElementById("next-btn");
+
+let index = 0;
+let score = 0;
+
+function startquiz() {
+    index = 0;
+    score = 0;
+    showquestion()
+}
+
+function showquestion() {
+      resetstate()
+    let currentQuestion = questions[index];
+    questionEle.innerText = `${index + 1} . ${currentQuestion.question}`;
+    
+    currentQuestion.answers.forEach((element) => {
+        const button = document.createElement("button");
+        button.innerText = element.text;
+            button.classList.add("btn");
+        answerBtn.appendChild(button);
+     if (element.correct) {
+             button.dataset.correct = element.correct;
+         }
+        button.addEventListener("click", selectAnswer);  
+
+            
+
+    }
+     )
+};
+
+
+function resetstate() {
+    
+    nextbtn.style.display = "none";
+    while (answerBtn.firstChild) {
+        answerBtn.removeChild(answerBtn.firstChild)
+    }
+
+
+}
+function selectAnswer(e) {
+  const selectedBtn = e.target;
+  const isCorrect = selectedBtn.dataset.correct == "true";
+  if (isCorrect) {
+      selectedBtn.classList.add("correct");
+      score++;
+  } else {
+    selectedBtn.classList.add("incorrect");
+    }
+  Array.from(answerBtn.children).forEach((button) => {
+    if (button.dataset.correct === "true") {
+      button.classList.add("correct");
+    }
+    button.disabled = true;
+  });
+    nextbtn.style.display = " block";
+}
+
+function showScore() {
+    resetstate();
+    questionEle.innerHTML = `you scored ${score} out of ${questions.length}!`;
+    nextbtn.innerHTML = "Play Again";
+    nextbtn.style.display = "block";
+}
+
+function handleNextBtn() {
+    index++;
+    if (index < questions.length) {
+        showquestion();
+    }
+    else {
+        showScore();
+    }
+}
+
+
+nextbtn.addEventListener("click",()=> {
+    if(index < questions.length){
+    handleNextBtn();
+    }
+    else {
+        startquiz()
+    }
+
+})
+
+showquestion()
+
+
+
+
+    </script>
+</body>
+</html>
