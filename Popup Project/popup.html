@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popup </title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+
+    <div class="container">
+
+    <div>
+        <button type="submit" class="btn" onclick="openpopup()"> submit</button>
+    </div>
+    <div class="popup" id="popup">
+      <img src="/web developement projects/media/image/ludoincon.png">
+      <h2>Happy Independence day 2025 !</h2>
+      <p> today is new day</p>
+      <button type="button" onclick="closepopup()">ok</button>
+    </div>
+
+    </div>
+
+    <script>
+
+   let element = document.getElementById("popup");
+
+    function openpopup(){
+      element.classList.add("open-popup");
+    }
+
+    function closepopup(){
+        element.classList.remove("open-popup");
+    }
+    </script>
+    
+</body>
+</html>
