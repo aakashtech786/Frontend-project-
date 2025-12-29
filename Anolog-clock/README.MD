@@ -1,4 +1,2 @@
-<h4>OUTPUT</h4> ,<p>
 
-<a href="Calculator project ">
-<image src="https://github.com/aakashtech786/Frontend-project-/blob/02af0cc0aebdf82bb2ac38d3140bf7bd18895c1c/Anolog-clock/PROJECT%20SCREENSHOT.jpg "/> </p>
+<image src="https://github.com/aakashtech786/Frontend-project-/blob/02af0cc0aebdf82bb2ac38d3140bf7bd18895c1c/Anolog-clock/PROJECT%20SCREENSHOT.jpg "/> 
