@@ -8,5 +8,5 @@
   <image src="https://github.com/aakashtech786/Frontend-project-/raw/main/Calculator%20project/SCREENSHOT.jpg">
     <br>
     <h2>#Form Validation</h2>
-    <image src="https://github.com/aakashtech786/Frontend-project-/raw/main/Form%20validation%20project/SCREENSHOT.png">
+    <image with="600" src="https://github.com/aakashtech786/Frontend-project-/raw/main/Form%20validation%20project/SCREENSHOT.png">
 </p>
