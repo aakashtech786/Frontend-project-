@@ -18,5 +18,8 @@
           <br>
           <h4>#QR Code Generator</h4>
           <image src="https://github.com/aakashtech786/Frontend-project-/raw/main/QR%20code%20Generator%20project/SCREENSHOT.png">
+          <br>
+          <h2>#Simple Quiz App</h2>
+          <image src="https://github.com/aakashtech786/Frontend-project-/raw/main/Simple%20Quiz%20App%20Project/SCREENSHOT.png?raw=true">
           
 </p>
