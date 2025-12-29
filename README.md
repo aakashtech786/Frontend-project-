@@ -13,7 +13,7 @@
       <h2>#Github Profile Project</h2>
       <image width="300" hight="600"  src="https://github.com/aakashtech786/Frontend-project-/raw/main/Github%20Profile%20Project/SCREENSHOT.png">
         <br>
-        <h4>#Simple Pop up</h4>
+        <h2>#Simple Pop up</h2>
         <image width="300" hight="600"  src="https://github.com/aakashtech786/Frontend-project-/raw/main/Popup%20Project/SCREENSHOT.png?raw=true">
           <br>
           <h2>#QR Code Generator</h2>
