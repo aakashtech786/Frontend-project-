@@ -21,5 +21,8 @@
           <br>
           <h2>#Simple Quiz App</h2>
           <image src="https://github.com/aakashtech786/Frontend-project-/raw/main/Simple%20Quiz%20App%20Project/SCREENSHOT.png?raw=true">
+          <br>
+          <h2>#Random Color Generator</h2>
+          <image src="https://github.com/aakashtech786/Frontend-project-/raw/main/Random%20Colour%20Generator%20Project/SCREENSHOT.png">
           
 </p>
