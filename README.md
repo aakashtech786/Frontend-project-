@@ -15,4 +15,8 @@
         <br>
         <h4>#Simple Pop up</h4>
         <image src="https://github.com/aakashtech786/Frontend-project-/raw/main/Popup%20Project/SCREENSHOT.png?raw=true">
+          <br>
+          <h4>#QR Code Generator</h4>
+          <image src="https://github.com/aakashtech786/Frontend-project-/raw/main/QR%20code%20Generator%20project/SCREENSHOT.png">
+          
 </p>
