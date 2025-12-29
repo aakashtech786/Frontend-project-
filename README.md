@@ -12,4 +12,7 @@
       <br>
       <h4>#Github Profile Project</h4>
       <image src="https://github.com/aakashtech786/Frontend-project-/raw/main/Github%20Profile%20Project/SCREENSHOT.png">
+        <br>
+        <h4>#Simple Pop up</h4>
+        <image src="https://github.com/aakashtech786/Frontend-project-/raw/main/Popup%20Project/SCREENSHOT.png?raw=true">
 </p>
