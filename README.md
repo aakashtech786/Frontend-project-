@@ -1,7 +1,7 @@
 # Frontend-project-
 
 <p>
-  <h2>#Analoge-Clock </h2>
+  <h2>#Anolog-Clock </h2>
   <image width="300" hight="600" src="https://github.com/aakashtech786/Frontend-project-/blob/02af0cc0aebdf82bb2ac38d3140bf7bd18895c1c/Anolog-clock/PROJECT%20SCREENSHOT.jpg">
     <br>
      <h2>#Calculator </h2>
